@@ -10,12 +10,26 @@
 
   <meta
     name="description"
-    content="MAIWORLD is a free local marketplace for buying, selling, giving away items and finding services."
+    content="MAIWORLD is a free local community marketplace where people can buy, sell, give away items and find local services."
   >
 
-  <title>MAIWORLD - Your Local. Your World.</title>
+  <title>MAIWORLD | Your Local. Your World.</title>
 
   <style>
+    :root {
+      --background: #101010;
+      --background-soft: #181818;
+      --card: #202020;
+      --gold: #ffd34d;
+      --gold-dark: #dca900;
+      --white: #ffffff;
+      --text: #eeeeee;
+      --muted: #bdbdbd;
+      --border: rgba(255, 211, 77, 0.24);
+      --max-width: 1120px;
+      --radius: 24px;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -23,152 +37,469 @@
     }
 
     html {
-      background: #111111;
+      scroll-behavior: smooth;
+      background: var(--background);
     }
 
     body {
       min-height: 100vh;
       min-height: 100dvh;
       font-family: Arial, Helvetica, sans-serif;
-      background: #111111;
-      color: #ffffff;
-      text-align: center;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    main {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
       width: 100%;
+      overflow: hidden;
+    }
+
+    .section {
+      padding: 72px 20px;
+    }
+
+    .section-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero {
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
+      align-items: center;
       justify-content: center;
       padding:
-        max(36px, env(safe-area-inset-top))
+        max(40px, env(safe-area-inset-top))
         20px
-        max(36px, env(safe-area-inset-bottom));
+        max(48px, env(safe-area-inset-bottom));
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(255, 211, 77, 0.09),
+          transparent 40%
+        ),
+        var(--background);
     }
 
-    .container {
+    .hero-inner {
       width: 100%;
-      max-width: 700px;
-      margin: auto 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      width: min(320px, 78vw);
+      margin: 0 auto 28px;
+      border-radius: 22%;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.4);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     h1 {
-      color: #ffd54a;
-      font-size: clamp(46px, 12vw, 72px);
-      line-height: 1;
-      letter-spacing: 1px;
-      overflow-wrap: anywhere;
+      font-size: clamp(2.6rem, 8vw, 5.2rem);
+      line-height: 1.05;
+      color: var(--white);
       margin-bottom: 18px;
     }
 
     .tagline {
-      color: #dddddd;
-      font-size: clamp(20px, 5vw, 28px);
-      line-height: 1.4;
-      margin-bottom: 46px;
+      color: var(--gold);
+      font-size: clamp(1.35rem, 4.5vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 24px;
     }
 
-    h2 {
-      font-size: clamp(38px, 9vw, 54px);
+    .hero-description {
+      max-width: 720px;
+      margin: 0 auto 32px;
+      color: var(--text);
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: var(--gold);
+      font-weight: 700;
+      background: rgba(255, 211, 77, 0.07);
+    }
+
+    .section-title {
+      color: var(--white);
+      font-size: clamp(2rem, 6vw, 3.4rem);
       line-height: 1.15;
-      margin-bottom: 26px;
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    p {
-      font-size: clamp(20px, 5vw, 26px);
-      line-height: 1.65;
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 1.1rem;
     }
 
-    .features {
-      color: #ffd54a;
-      font-size: clamp(30px, 7vw, 42px);
-      font-weight: bold;
-      line-height: 1.65;
-      margin: 46px 0;
+    .soft-section {
+      background: var(--background-soft);
     }
 
-    .benefits {
-      line-height: 1.85;
+    .feature-grid,
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
-    .footer {
-      color: #aaaaaa;
-      font-size: clamp(16px, 4vw, 20px);
-      line-height: 1.5;
-      margin-top: 54px;
+    .card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
     }
 
-    .website-address {
-      overflow-wrap: anywhere;
+    .card h3 {
+      color: var(--gold);
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .reason-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .reason-card {
+      text-align: center;
+    }
+
+    .reason-card strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .download-panel {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 46px 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 211, 77, 0.08),
+          rgba(255, 211, 77, 0.02)
+        ),
+        var(--card);
+      text-align: center;
+    }
+
+    .download-panel h2 {
+      color: var(--white);
+      font-size: clamp(2rem, 6vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .download-panel p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+    .store-placeholder {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: var(--gold);
+      color: #111111;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .journey-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .journey-links span {
+      padding: 10px 16px;
+      border: 1px solid #3a3a3a;
+      border-radius: 999px;
+      color: var(--muted);
+      background: #171717;
+    }
+
+    footer {
+      padding:
+        34px
+        20px
+        max(34px, env(safe-area-inset-bottom));
+      border-top: 1px solid #2d2d2d;
+      text-align: center;
+      background: #0c0c0c;
+    }
+
+    .footer-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .footer-links span {
+      color: var(--muted);
+    }
+
+    .copyright {
+      color: #7f7f7f;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 780px) {
+      .section {
+        padding: 58px 18px;
+      }
+
+      .feature-grid,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .logo {
+        width: min(270px, 76vw);
+      }
     }
 
     @media (max-width: 420px) {
-      main {
+      .hero {
         padding-left: 16px;
         padding-right: 16px;
       }
 
-      .tagline {
-        margin-bottom: 38px;
+      .section {
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .features {
-        margin: 38px 0;
-      }
-
-      .footer {
-        margin-top: 44px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      main {
-        padding-top: 60px;
-        padding-bottom: 60px;
+      .download-panel {
+        padding: 36px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main>
-    <div class="container">
+  <div class="page-shell">
 
-      <h1>MAIWORLD</h1>
+    <header class="hero">
+      <div class="hero-inner">
 
-      <div class="tagline">
-        Your Local. Your World.
+        <img
+          class="logo"
+          src="maiworld-logo.png"
+          alt="MAIWORLD logo"
+        >
+
+        <p class="eyebrow">Local community connection</p>
+
+        <h1>MAIWORLD</h1>
+
+        <p class="tagline">Your Local. Your World.</p>
+
+        <p class="hero-description">
+          A free local community marketplace where people can buy,
+          sell, give away items and find local services.
+        </p>
+
+        <div class="status-badge">
+          Coming soon to Android
+        </div>
+
       </div>
+    </header>
 
-      <h2>Coming Soon</h2>
+    <main>
 
-      <p>
-        A free local marketplace for your community.
-      </p>
+      <section class="section soft-section">
+        <div class="section-inner">
 
-      <div class="features">
-        Buy<br>
-        Sell<br>
-        Give Away<br>
-        Find Services
+          <h2 class="section-title">What is MAIWORLD?</h2>
+
+          <p class="section-intro">
+            MAIWORLD is being built to make it easier for local people
+            to connect with one another without complicated marketplace
+            systems or selling fees.
+          </p>
+
+          <div class="feature-grid">
+
+            <article class="card">
+              <h3>Buy</h3>
+              <p>
+                Discover items offered by people in your local community.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Sell</h3>
+              <p>
+                Create a simple local listing and connect directly with
+                interested buyers.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Give Away</h3>
+              <p>
+                Offer useful items for free instead of letting them go
+                to waste.
+              </p>
+            </article>
+
+            <article class="card">
+              <h3>Find Services</h3>
+              <p>
+                Find local people offering services or let the community
+                know what help you need.
+              </p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+
+          <h2 class="section-title">Made to stay simple</h2>
+
+          <p class="section-intro">
+            MAIWORLD connects people. Buyers and sellers arrange their
+            own collection, payment and private details between themselves.
+          </p>
+
+          <div class="reason-grid">
+
+            <article class="card reason-card">
+              <strong>No listing fees</strong>
+              <p>People can create listings without paying a listing fee.</p>
+            </article>
+
+            <article class="card reason-card">
+              <strong>No commissions</strong>
+              <p>MAIWORLD does not take a percentage from private deals.</p>
+            </article>
+
+            <article class="card reason-card">
+              <strong>Local first</strong>
+              <p>The experience is designed around towns, cities and communities.</p>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section soft-section">
+        <div class="section-inner">
+
+          <div class="download-panel">
+
+            <h2>Coming to Google Play</h2>
+
+            <p>
+              The MAIWORLD Android app is currently being built and tested.
+              The official download link will appear here when the public
+              version is ready.
+            </p>
+
+            <span class="store-placeholder">
+              Google Play — Coming Soon
+            </span>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+
+          <h2 class="section-title">Follow the journey</h2>
+
+          <p class="section-intro">
+            Follow the real journey as MAIWORLD is designed, built,
+            tested and prepared for its first public release.
+          </p>
+
+          <div class="journey-links">
+            <span>Facebook</span>
+            <span>Instagram</span>
+            <span>TikTok</span>
+            <span>YouTube</span>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+
+        <div class="footer-links">
+          <span>Privacy Policy — Coming Soon</span>
+          <span>Terms — Coming Soon</span>
+          <span>Contact — Coming Soon</span>
+        </div>
+
+        <p class="copyright">
+          © 2026 MAIWORLD. Your Local. Your World.
+        </p>
+
       </div>
+    </footer>
 
-      <p class="benefits">
-        No ads.<br>
-        No listing fees.<br>
-        No commissions.
-      </p>
-
-      <div class="footer">
-        Launching Soon<br><br>
-
-        <span class="website-address">
-          www.maiworldapp.com
-        </span>
-      </div>
-
-    </div>
-  </main>
+  </div>
 </body>
 </html>
