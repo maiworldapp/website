@@ -1,115 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>MAIWORLD - Your Local. Your World.</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+  <meta
+    name="description"
+    content="MAIWORLD is a free local marketplace for buying, selling, giving away items and finding services."
+  >
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#111;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
-padding:20px;
-}
+  <title>MAIWORLD - Your Local. Your World.</title>
 
-.container{
-max-width:700px;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-h1{
-font-size:64px;
-color:#FFD54A;
-margin-bottom:15px;
-}
+    html {
+      background: #111111;
+    }
 
-.tagline{
-font-size:24px;
-margin-bottom:40px;
-color:#ddd;
-}
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111111;
+      color: #ffffff;
+      text-align: center;
+    }
 
-h2{
-font-size:40px;
-margin-bottom:20px;
-}
+    main {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      padding:
+        max(36px, env(safe-area-inset-top))
+        20px
+        max(36px, env(safe-area-inset-bottom));
+    }
 
-p{
-font-size:22px;
-line-height:1.8;
-}
+    .container {
+      width: 100%;
+      max-width: 700px;
+      margin: auto 0;
+    }
 
-.features{
-margin:40px 0;
-font-size:28px;
-font-weight:bold;
-line-height:2;
-color:#FFD54A;
-}
+    h1 {
+      color: #ffd54a;
+      font-size: clamp(46px, 12vw, 72px);
+      line-height: 1;
+      letter-spacing: 1px;
+      overflow-wrap: anywhere;
+      margin-bottom: 18px;
+    }
 
-.footer{
-margin-top:50px;
-font-size:18px;
-color:#999;
-}
-</style>
+    .tagline {
+      color: #dddddd;
+      font-size: clamp(20px, 5vw, 28px);
+      line-height: 1.4;
+      margin-bottom: 46px;
+    }
 
+    h2 {
+      font-size: clamp(38px, 9vw, 54px);
+      line-height: 1.15;
+      margin-bottom: 26px;
+    }
+
+    p {
+      font-size: clamp(20px, 5vw, 26px);
+      line-height: 1.65;
+    }
+
+    .features {
+      color: #ffd54a;
+      font-size: clamp(30px, 7vw, 42px);
+      font-weight: bold;
+      line-height: 1.65;
+      margin: 46px 0;
+    }
+
+    .benefits {
+      line-height: 1.85;
+    }
+
+    .footer {
+      color: #aaaaaa;
+      font-size: clamp(16px, 4vw, 20px);
+      line-height: 1.5;
+      margin-top: 54px;
+    }
+
+    .website-address {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 420px) {
+      main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .tagline {
+        margin-bottom: 38px;
+      }
+
+      .features {
+        margin: 38px 0;
+      }
+
+      .footer {
+        margin-top: 44px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      main {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main>
+    <div class="container">
 
-<div class="container">
+      <h1>MAIWORLD</h1>
 
-<h1>MAIWORLD</h1>
+      <div class="tagline">
+        Your Local. Your World.
+      </div>
 
-<div class="tagline">
-Your Local. Your World.
-</div>
+      <h2>Coming Soon</h2>
 
-<h2>Coming Soon</h2>
+      <p>
+        A free local marketplace for your community.
+      </p>
 
-<p>
-A free local marketplace for your community.
-</p>
+      <div class="features">
+        Buy<br>
+        Sell<br>
+        Give Away<br>
+        Find Services
+      </div>
 
-<div class="features">
+      <p class="benefits">
+        No ads.<br>
+        No listing fees.<br>
+        No commissions.
+      </p>
 
-Buy<br>
-Sell<br>
-Give Away<br>
-Find Services
+      <div class="footer">
+        Launching Soon<br><br>
 
-</div>
+        <span class="website-address">
+          www.maiworldapp.com
+        </span>
+      </div>
 
-<p>
-
-No ads.<br>
-No listing fees.<br>
-No commissions.
-
-</p>
-
-<div class="footer">
-
-Launching Soon<br><br>
-
-www.maiworldapp.com
-
-</div>
-
-</div>
-
+    </div>
+  </main>
 </body>
 </html>
