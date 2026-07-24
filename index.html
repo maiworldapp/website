@@ -252,15 +252,29 @@
       margin-top: 28px;
     }
 
-    .journey-links span {
-      padding: 10px 16px;
+    .journey-links a {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:150px;
+      padding:16px 24px;
       border: 1px solid #3a3a3a;
       border-radius: 999px;
       color: var(--muted);
-      background: #171717;
+      background:#171717;
+      text-decoration:none;
+      font-weight:700;
+      transition:all .2s ease;
     }
 
-    footer {
+    
+    .journey-links a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+footer {
       padding:
         34px
         20px
@@ -328,7 +342,7 @@
       }
     }
   </style>
-</head>
+
 
 <body>
   <div class="page-shell">
@@ -454,9 +468,7 @@
               version is ready.
             </p>
 
-            <span class="store-placeholder">
-              Google Play — Coming Soon
-            </span>
+            <a class="store-placeholder" href="#" onclick="return false;">🎮 Google Play — Coming Soon</a>
 
           </div>
         </div>
