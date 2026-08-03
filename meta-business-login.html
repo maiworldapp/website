@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect Facebook Page</title>
+</head>
+
+<body style="font-family:sans-serif;text-align:center;padding-top:60px">
+<h2>Connecting Facebook...</h2>
+<p>Please wait.</p>
+
+<script>
+const APP_ID = "3383318038504692";
+const CONFIG_ID = "2490578604794943";
+
+window.fbAsyncInit = function () {
+
+  FB.init({
+    appId: APP_ID,
+    cookie: true,
+    xfbml: false,
+    version: "v23.0"
+  });
+
+  FB.login(function(response){
+
+      if(
+          !response ||
+          !response.authResponse ||
+          !response.authResponse.code
+      ){
+          window.location.href =
+          "growmaiworld://oauth/callback?provider=meta-business&error=cancelled";
+          return;
+      }
+
+      window.location.href =
+      "growmaiworld://oauth/callback?provider=meta-business&code="
+      + encodeURIComponent(response.authResponse.code);
+
+  },{
+      config_id: CONFIG_ID,
+      response_type: "code",
+      override_default_response_type: true
+  });
+
+};
+
+(function(d,s,id){
+
+    var js,fjs=d.getElementsByTagName(s)[0];
+
+    if(d.getElementById(id)) return;
+
+    js=d.createElement(s);
+    js.id=id;
+    js.src="https://connect.facebook.net/en_US/sdk.js";
+
+    fjs.parentNode.insertBefore(js,fjs);
+
+}(document,'script','facebook-jssdk'));
+</script>
+
+</body>
+</html>
